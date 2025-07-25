@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "@next/font/google";
+import Layout from "@/components/Layout";
 
 // Inter 폰트
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ko" className={`${inter.variable}`}>
-            <body>{children}</body>
+            <body>
+                <Layout>{children}</Layout>
+            </body>
         </html>
     );
 }
