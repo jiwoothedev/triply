@@ -34,10 +34,10 @@ export default function Header() {
                             key={href}
                             href={href}
                             className={clsx(
-                                "text-sm text-primary-dark rounded-full px-5 py-2 transition-colors", // 공통 클래스
+                                "font-semibold text-sm text-primary-dark rounded-full px-5 py-2 transition-colors", // 공통 클래스
                                 pathname === href
-                                    ? "bg-primary-light font-bold"
-                                    : "hover:bg-gray-100 font-semibold"
+                                    ? "bg-primary-light"
+                                    : "hover:bg-gray-100"
                             )}
                         >
                             {label}
