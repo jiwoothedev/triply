@@ -1,10 +1,12 @@
 import Header from "./Header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-    return (
-        <>
-            <Header />
-            <main>{children}</main>
-        </>
-    );
+  return (
+    <>
+      <div className="flex justify-center">
+        <Header />
+      </div>
+      <main>{children}</main>
+    </>
+  );
 }
