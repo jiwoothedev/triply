@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #9fe870;
-    --color-primary-light: #e2f6d5;
-    --color-primary-dark: #163300;
-    --color-main: #1a1a1a;
-    --color-sub: #666666;
-    --color-border: #e5e7eb; /* 구분선 */
+  --color-primary: #9fe870;
+  --color-primary-light: #e2f6d5;
+  --color-primary-dark: #163300;
+  --color-main: #1a1a1a;
+  --color-sub: #666666;
+  --color-border: #e5e7eb; /* 구분선 */
 }
 
 :root {
-    font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* 국기 슬라이드 애니메이션 */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  animation: slide 20s linear infinite;
 }
