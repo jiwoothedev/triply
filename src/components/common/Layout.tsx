@@ -1,12 +1,12 @@
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="flex justify-center">
-        <Header />
-      </div>
+      <Header />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
