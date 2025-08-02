@@ -9,8 +9,8 @@ export default function FlagIcon({ country }: FlagIconProps) {
     <Image
       src={`/icons/flags/${country}.svg`}
       alt={country}
-      width={130}
-      height={130}
+      width={112}
+      height={112}
     />
   );
 }
