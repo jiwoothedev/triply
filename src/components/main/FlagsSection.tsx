@@ -15,7 +15,7 @@ export default function FlagsSection() {
   const duplicated = [...countries, ...countries]; // 무한루프처럼 보이게 배열 복제
 
   return (
-    <section className="w-full h-32 mt-10 flex items-center">
+    <section className="w-full h-32 mt-28 flex items-center">
       {/* 화살표 영역 */}
       <div className="w-96 h-full bg-primary rounded-tr-full rounded-br-full flex items-center justify-end p-3">
         <div className="w-28 h-28 bg-primary-dark rounded-full flex items-center justify-center">
