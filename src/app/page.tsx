@@ -1,4 +1,5 @@
 import Button from "@/components/common/Button";
+import CommunitySection from "@/components/main/CommunitySection";
 import ConverterSection from "@/components/main/ConverterSection";
 import FlagsSection from "@/components/main/FlagsSection";
 import PlannerSection from "@/components/main/PlannerSection";
@@ -68,6 +69,9 @@ export default function Home() {
 
       {/* 국기 리스트 섹션 */}
       <FlagsSection />
+
+      {/* 커뮤니티 섹션 */}
+      <CommunitySection />
     </section>
   );
 }
