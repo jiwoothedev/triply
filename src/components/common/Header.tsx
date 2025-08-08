@@ -15,7 +15,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white w-full max-w-[1440px] h-[80px] mx-auto px-6 py-3 flex items-center justify-between">
+    <header className="fixed top-0 left-0 z-50 bg-white w-full h-[80px] mx-auto px-20 py-3 flex items-center justify-between shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
       <div className="flex items-center gap-12">
         {/* 로고 */}
         <Link href="/">
