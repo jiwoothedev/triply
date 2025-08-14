@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${inter.variable}`}>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="TRIPLY" />
+      </head>
       <body>
         <Layout>{children}</Layout>
       </body>
