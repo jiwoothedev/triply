@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "예산 플래너", href: "/planner" },
+    { label: "예산 플래너", href: "/planner/select" },
     { label: "환율 계산기", href: "/currency-converter" },
     { label: "커뮤니티", href: "/community" },
   ];
