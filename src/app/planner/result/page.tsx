@@ -40,8 +40,8 @@ export default function ResultPage() {
             </p>
 
             {/* 공유하기 & PDF 다운로드 버튼 */}
-            <div className="mt-8 flex items-center justify-center gap-5">
-              <button className="px-6 py-3 rounded-full text-sm bg-lime-400 text-[#0E2A0E] font-semibold hover:brightness-110 transition shadow-md">
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <button className="px-6 py-3 rounded-full text-sm bg-white/10 text-white font-semibold hover:bg-white/15 transition border border-white/20">
                 공유하기
               </button>
               <button className="px-6 py-3 rounded-full text-sm bg-white/10 text-white font-semibold hover:bg-white/15 transition border border-white/20">
