@@ -11,7 +11,7 @@ export const CURRENCIES: Currency[] = [
     code: "USD",
     country: "미국",
     unitName: "달러",
-    flag: "/icons/flags/unitNameed-States.svg",
+    flag: "/icons/flags/United-States.svg",
   },
   {
     code: "EUR",
@@ -29,7 +29,7 @@ export const CURRENCIES: Currency[] = [
     code: "GBP",
     country: "영국",
     unitName: "파운드",
-    flag: "/icons/flags/unitNameed-Kingdom.svg",
+    flag: "/icons/flags/United-Kingdom.svg",
   },
   {
     code: "CNY",
