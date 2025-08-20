@@ -1,11 +1,11 @@
 import Button from "../common/Button";
 import FlagIcon from "./FlagIcon";
 
-interface CommunityCardProps {
+interface MainCommunityCardProps {
   content: string;
 }
 
-export default function CommunityCard({ content }: CommunityCardProps) {
+export default function MainCommunityCard({ content }: MainCommunityCardProps) {
   return (
     <div className="w-[320px] h-[430px] rounded-2xl p-5 bg-primary flex flex-col justify-center">
       <FlagIcon country="Canada" />

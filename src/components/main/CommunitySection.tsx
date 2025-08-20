@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import CommunityCard from "./CommunityCard";
 import { useState } from "react";
+import MainCommunityCard from "./MainCommunityCard";
 
 // 커뮤니티 카드 더미데이터
 const communityCardData = [
@@ -90,7 +90,7 @@ export default function CommunitySection() {
           >
             {communityCardData.map((content, idx) => (
               <div key={idx} className="min-w-[300px] mr-8">
-                <CommunityCard content={content} />
+                <MainCommunityCard content={content} />
               </div>
             ))}
           </div>
