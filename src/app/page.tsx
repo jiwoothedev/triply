@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <section className="flex flex-col items-center">
-      <p className="text-6xl font-bold text-primary-dark leading-snug mt-8 mb-3  text-center">
+      <p className="text-6xl font-bold text-primary-dark leading-snug mt-20 mb-3  text-center">
         예산은 똑똑하게, <br /> 한 달 살기는 자유롭게.
       </p>
       <p className="text-main font-medium text-lg  text-center">
