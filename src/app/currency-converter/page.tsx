@@ -54,10 +54,10 @@ export default function ConverterPage() {
   return (
     <section className="min-h-screen flex flex-col items-center bg-primary-dark">
       <div className="w-full max-w-[1000px] px-6 py-12">
-        <h1 className="text-4xl font-bold text-primary text-center">
+        <h1 className="text-4xl font-bold text-primary text-center mb-3">
           환율 계산기
         </h1>
-        <p className="text-white text-center mt-2 mb-12">
+        <p className="text-sm text-white text-center mb-12">
           실시간 환율로 정확한 환전 계산을 해보세요.
         </p>
 
