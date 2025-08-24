@@ -9,7 +9,6 @@ export interface CommunityPostCardProps {
   postedAt: string;
   title: string;
   excerpt: string; // 본문 요약 내용
-  tags: string[];
   budgetKRW?: string;
   budgetLocal?: string;
   thumbnail: string;
@@ -22,91 +21,100 @@ export default function CommunityPostCard({
   postedAt,
   title,
   excerpt,
-  tags,
   budgetKRW,
   budgetLocal,
   thumbnail,
   stats,
 }: CommunityPostCardProps) {
   return (
-    <article className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
-      <div className="flex items-center gap-3">
-        {/* 프로필 사진 */}
-        <Image
-          src={author.avatar}
-          alt={author.name}
-          width={36}
-          height={36}
-          className="rounded-full border border-border"
-        />
-        {/* 작성자 / 작성일 / 여행국가 */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <p className="font-semibold text-primary-dark truncate">
-              {author.name}
-            </p>
-          </div>
-          <div className="text-xs text-gray-500 flex items-center gap-2">
-            <span className="flex items-center gap-1">{country}</span>
-            <span>·</span>
-            <span>{postedAt}</span>
-          </div>
+    <article className="bg-white rounded-xl shadow-sm overflow-hidden">
+      <div className="flex">
+        {/* 썸네일 */}
+        <div className="w-[300px] h-[260px] overflow-hidden rounded-xl">
+          <Image
+            src={thumbnail}
+            alt={title}
+            width={300}
+            height={260}
+            className="w-[300px] h-[260px] object-fill"
+            priority={false}
+          />
         </div>
 
-        {/* 총 예산 */}
-        {(budgetKRW || budgetLocal) && (
-          <div className="ml-3 text-right">
-            <div className="text-xs text-gray-400">총 예산</div>
-            <div className="font-semibold text-primary-dark">{budgetKRW}</div>
-            {budgetLocal && (
-              <div className="text-[11px] text-gray-400">{budgetLocal}</div>
+        <div className="flex-1 p-4 flex flex-col h-[260px]">
+          <div className="flex items-center gap-2">
+            {/* 프로필 사진 */}
+            <Image
+              src={author.avatar}
+              alt={author.name}
+              width={30}
+              height={30}
+              className="rounded-full border border-gray-200"
+            />
+            {/* 작성자 / 작성일 / 여행국가 */}
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-primary-dark truncate text-sm">
+                {author.name}
+              </p>
+              <div className="text-[11px] text-gray-500 flex items-center gap-1">
+                <span className="flex items-center">{country}</span>
+                <span>·</span>
+                <span>{postedAt}</span>
+              </div>
+            </div>
+
+            {/* 총 예산 */}
+            {(budgetKRW || budgetLocal) && (
+              <div className="ml-3 text-right">
+                {budgetKRW && (
+                  <div className="font-semibold text-primary-dark">
+                    {budgetKRW}
+                  </div>
+                )}
+                {budgetLocal && (
+                  <div className="text-[11px] text-gray-400">{budgetLocal}</div>
+                )}
+              </div>
             )}
           </div>
-        )}
-      </div>
 
-      {/* 본문 */}
-      <h3 className="mt-4 font-semibold text-[15px] text-primary-dark">
-        {title}
-      </h3>
-      <p className="mt-1 text-sm text-gray-600">{excerpt}</p>
+          <div className="mt-6 flex-1">
+            {/* 타이틀 */}
+            <h3 className="font-semibold text-lg text-primary-dark line-clamp-1">
+              {title}
+            </h3>
+            {/* 본문 */}
+            <p className="mt-2 text-[13px] text-gray-500  line-clamp-3">
+              {excerpt}
+            </p>
+          </div>
 
-      {/* 태그 */}
-      <div className="mt-3 flex flex-wrap gap-1">
-        {tags.map((t) => (
-          <span
-            key={t}
-            className="text-[11px] px-2 py-1 rounded-full bg-gray-50 text-gray-600 border border-gray-200"
-          >
-            #{t}
-          </span>
-        ))}
-      </div>
-
-      {/* 썸네일 */}
-      <div className="mt-4 overflow-hidden rounded-lg">
-        <Image
-          src={thumbnail}
-          alt={title}
-          width={1200}
-          height={630}
-          className="w-full h-[220px] object-cover"
-        />
-      </div>
-
-      {/* 댓글 / 좋아요 */}
-      <div className="mt-4 flex items-center gap-5 text-sm text-gray-500">
-        <span className="flex items-center justify-center gap-1">
-          <Image src="icons/comment.svg" alt="댓글" width={18} height={18} />
-          {stats.comments}
-        </span>
-        <span className="flex items-center justify-center gap-1">
-          <Image src="icons/heart.svg" alt="좋아요" width={18} height={18} />
-          {stats.likes}
-        </span>
-        <button className="ml-auto text-gray-400 hover:text-primary-dark">
-          자세히 보기 →
-        </button>
+          {/* 댓글 / 좋아요 */}
+          <div className="flex items-center gap-5 text-xs text-primary-dark">
+            <span className="flex items-center gap-1">
+              <div className="bg-primary-light p-1 rounded-full">
+                <Image
+                  src="/icons/heart.svg"
+                  alt="좋아요"
+                  width={14}
+                  height={14}
+                />
+              </div>
+              {stats.likes}
+            </span>
+            <span className="flex items-center gap-1">
+              <div className="bg-primary-light p-1 rounded-full">
+                <Image
+                  src="/icons/comment.svg"
+                  alt="댓글"
+                  width={14}
+                  height={14}
+                />
+              </div>
+              {stats.comments}
+            </span>
+          </div>
+        </div>
       </div>
     </article>
   );
