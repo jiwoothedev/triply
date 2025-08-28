@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "예산 플래너", href: "/planner/select" },
+    { label: "예산 플래너", href: "/planner" },
     { label: "환율 계산기", href: "/currency-converter" },
     { label: "커뮤니티", href: "/community" },
   ];
@@ -24,18 +24,21 @@ export default function Header() {
 
         {/* Navbar */}
         <nav className="flex items-center gap-4">
-          {navItems.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className={clsx(
-                "font-semibold text-sm text-primary-dark rounded-full px-5 py-2 transition-colors", // 공통 클래스
-                pathname === href ? "bg-primary-light" : "hover:bg-gray-100"
-              )}
-            >
-              {label}
-            </Link>
-          ))}
+          {navItems.map(({ label, href }) => {
+            const isActive = pathname.startsWith(href); // /planner로 시작하는 모든 경로 유지
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={clsx(
+                  "font-semibold text-sm text-primary-dark rounded-full px-5 py-2 transition-colors", // 공통 클래스
+                  isActive ? "bg-primary-light" : "hover:bg-gray-100"
+                )}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
 
