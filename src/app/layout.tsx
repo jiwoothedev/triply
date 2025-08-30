@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Layout from "@/components/common/Layout";
-
-// Inter 폰트
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+import localFont from "next/font/local";
 
 // 메타 데이터
 export const metadata: Metadata = {
@@ -12,13 +9,21 @@ export const metadata: Metadata = {
   // TODO: 추가 예정
 };
 
+// 프리텐다드 폰트
+const pretendard = localFont({
+  src: "./fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-pretendard",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${inter.variable}`}>
+    <html lang="ko" className={`${pretendard.variable}`}>
       <head>
         <meta name="apple-mobile-web-app-title" content="TRIPLY" />
       </head>
