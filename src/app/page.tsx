@@ -1,8 +1,8 @@
 import CommunitySection from "@/components/main/CommunitySection";
-import ConverterSection from "@/components/main/ConverterSection";
 import FlagsSection from "@/components/main/FlagsSection";
-import PlannerSection from "@/components/main/PlannerSection";
+import ServiceDetailSection from "@/components/main/ServiceDetailSection";
 import ServiceIntroSection from "@/components/main/ServiceIntroSection";
+import WorldMapSection from "@/components/main/WorldMapSection";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     <section className="flex flex-col items-center">
       <div
         id="hero"
-        className="relative w-full h-[750px] overflow-hidden rounded-bl-[36px] rounded-br-[36px]"
+        className="relative w-full h-[750px] overflow-hidden rounded-bl-3xl rounded-br-3xl"
       >
         <Image
           src="/images/main-hero.jpg"
@@ -36,11 +36,11 @@ export default function Home() {
       {/* 서비스 소개 섹션 */}
       <ServiceIntroSection />
 
-      {/* 예산 플래너 섹션 */}
-      <PlannerSection />
+      {/* 서비스 상세 소개 섹션*/}
+      <ServiceDetailSection />
 
-      {/* 환율 계산기 섹션 */}
-      <ConverterSection />
+      {/* 지도 섹션 */}
+      <WorldMapSection />
 
       {/* 국기 리스트 섹션 */}
       <FlagsSection />
