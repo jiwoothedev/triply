@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function WorldMapSection() {
   return (
-    <section className="w-full">
-      <div className="relative overflow-hidden bg-primary-dark text-white px-8 py-10">
+    <section className="w-full bg-primary-dark">
+      <div className="relative overflow-hidden  text-white px-8 py-20 max-w-6xl mx-auto">
         <div className="mb-2 text-sm/relaxed">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1">
             <span className="size-1.5 rounded-full bg-primary" />

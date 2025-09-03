@@ -82,13 +82,13 @@ export default function Header() {
       <div className="flex items-center gap-2">
         <Link
           href="/login"
-          className="text-[13px] text-primary-dark px-4 py-2 rounded-full font-semibold border border-primary-dark"
+          className="text-[13px] text-primary-dark bg-transparent px-4 py-2 rounded-full font-semibold border border-primary-dark"
         >
           로그인
         </Link>
         <Link
           href="/signup"
-          className="text-[13px] text-white bg-primary-dark px-4 py-2 rounded-full font-semibold"
+          className="text-[13px] text-white bg-primary-dark px-4 py-2 rounded-full font-semibold hover:brightness-150"
         >
           회원가입
         </Link>
