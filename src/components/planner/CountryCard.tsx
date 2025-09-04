@@ -34,7 +34,7 @@ export default function CountryCard({
       <p className="mt-5 text-lg font-semibold">{countryName}</p>
       <p className="text-sm mt-1">{exchangeRate}</p>
       <p className="text-xs text-gray-400 mt-6">평균 한 달 생활비</p>
-      <p className="text-xs text-gray-500">{livingCost}</p>
+      <p className="text-xs text-gray-500">{livingCost}원</p>
     </button>
   );
 }
