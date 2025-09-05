@@ -126,4 +126,11 @@ export const CURRENCIES: Currency[] = [
     flag: "/icons/flags/United-States.svg",
     avgMonthly: "250,000 ~ 400,000",
   },
+  {
+    code: "KRW",
+    country: "대한민국",
+    unitName: "원",
+    flag: "/icons/flags/South-Korea.svg",
+    avgMonthly: "-",
+  },
 ];
