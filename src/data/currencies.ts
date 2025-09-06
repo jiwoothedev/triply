@@ -22,13 +22,6 @@ export const CURRENCIES: Currency[] = [
     avgMonthly: "250,000 ~ 400,000",
   },
   {
-    code: "CNY",
-    country: "중국",
-    unitName: "위안",
-    flag: "/icons/flags/China.svg",
-    avgMonthly: "250,000 ~ 400,000",
-  },
-  {
     code: "DKK",
     country: "덴마크",
     unitName: "크로네",
