@@ -88,7 +88,6 @@ export default function ConverterPage() {
               { code: "EUR", baseKRW: 1456.23, diff: -7.23, changePct: -0.22 },
               { code: "JPY", baseKRW: 8.92, diff: -7.89, changePct: -0.96 },
               { code: "GBP", baseKRW: 1654.32, diff: 6.89, changePct: 0.73 },
-              { code: "CNY", baseKRW: 185.67, diff: 1.41, changePct: 0.5 },
               { code: "THB", baseKRW: 35.12, diff: 9.78, changePct: -0.77 },
               { code: "AUD", baseKRW: 859.74, diff: -6.45, changePct: 0.67 },
               { code: "CAD", baseKRW: 967.23, diff: 1.79, changePct: 0.58 },
