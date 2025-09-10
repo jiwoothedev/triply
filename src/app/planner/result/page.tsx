@@ -1,24 +1,83 @@
 "use client";
 
-import BudgetTable from "@/components/planner/BudgetTable";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import BudgetTable from "@/components/planner/BudgetTable";
+
+// 카테고리
+const CATS = [
+  { key: "stay", label: "숙박비" },
+  { key: "food", label: "식비" },
+  { key: "transport", label: "교통비" },
+  { key: "activity", label: "관광/액티비티" },
+  { key: "shopping", label: "쇼핑" },
+  { key: "etc", label: "기타" },
+] as const;
+
+interface SavedPayload {
+  code: string;
+  country: string;
+  flag: string;
+  rate: number | null;
+  inputs: Record<string, string>;
+  ts: number;
+}
+
+const parseNumber = (s: string) =>
+  Number(String(s || "0").replace(/[^\d.]/g, "")) || 0;
+
+const fmtKRW = (n: number) => `₩${Math.round(n).toLocaleString()}`;
 
 export default function ResultPage() {
+  const [data, setData] = useState<SavedPayload | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("planner:last");
+      if (raw) setData(JSON.parse(raw));
+    } catch {
+      setData(null);
+    }
+  }, []);
+
+  const invalid = !data || data.rate == null;
+
+  const rows = useMemo(() => {
+    if (!data || data.rate == null) return [];
+    return CATS.map((c) => {
+      const foreign = parseNumber(data.inputs?.[c.key]);
+      const krw = foreign * data.rate!;
+      return { label: c.label, foreign, krw };
+    });
+  }, [data]);
+
+  const totals = useMemo(() => {
+    const totalKRW = rows.reduce((s, r) => s + r.krw, 0);
+    const totalForeign = rows.reduce((s, r) => s + r.foreign, 0);
+    return { totalKRW, totalForeign };
+  }, [rows]);
+
   return (
     <div className="min-h-screen flex flex-col items-center px-4 pt-4 pb-30">
-      <div className=" bg-white w-full max-w-[1200px] px-20 py-12 rounded-xl shadow-lg flex flex-col justify-center items-center">
+      <div className="bg-white w-full max-w-[1200px] px-20 py-12 rounded-xl shadow-lg flex flex-col justify-center items-center">
         <div className="mb-8 text-center">
           <div className="flex justify-center items-center gap-3 mb-2">
             <Image
-              src="/icons/flags/Thailand.svg"
-              alt="태국"
+              src={data?.flag || "/icons/flags/United-States.svg"}
+              alt={data?.country || "국기"}
               width={32}
               height={32}
             />
-            <h2 className="text-2xl font-bold">태국 한 달 살기 예산 결과</h2>
+            <h2 className="text-2xl font-bold">
+              {data?.country || "여행지"} 한 달 살기 예산 결과
+            </h2>
           </div>
-          <p className="text-sm text-gray-500">환율 기준: 1 THB = ₩35.12</p>
+          <p className="text-sm text-gray-500">
+            {invalid
+              ? "예산 입력 페이지에서 정보를 입력해 주세요."
+              : `환율 기준: 1 ${data!.code} = ${fmtKRW(data!.rate!)}`}
+          </p>
         </div>
 
         {/* 예산 요약 카드 */}
@@ -33,10 +92,12 @@ export default function ResultPage() {
               총 예산
             </h3>
             <p className="mt-2 text-4xl font-semibold text-white text-center">
-              ₩351,200
+              {invalid ? "—" : fmtKRW(totals.totalKRW)}
             </p>
             <p className="mt-2 text-sm text-emerald-100/90 text-center">
-              10,000 THB
+              {invalid
+                ? ""
+                : `${totals.totalForeign.toLocaleString()} ${data!.code}`}
             </p>
 
             {/* 공유하기 & PDF 다운로드 버튼 */}
@@ -102,7 +163,22 @@ export default function ResultPage() {
             </div>
             <p className="font-semibold">상세 내역</p>
           </div>
-          <BudgetTable />
+
+          {invalid ? (
+            <div className="text-sm text-gray-500">
+              예산 입력 정보가 없습니다.
+              <Link href="/planner/select" className="underline">
+                여행지 선택으로 이동
+              </Link>
+            </div>
+          ) : (
+            <BudgetTable
+              rows={rows}
+              totalForeign={totals.totalForeign}
+              totalKRW={totals.totalKRW}
+              code={data!.code}
+            />
+          )}
         </div>
 
         <Link href="/planner/select">
