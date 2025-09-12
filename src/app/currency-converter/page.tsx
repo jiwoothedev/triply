@@ -7,12 +7,12 @@ import PopularTabs from "@/components/converter/PopularTabs";
 
 // PopularTabs
 const TABS = [
+  { label: "달러 → 원", from: "USD", to: "KRW" },
+  { label: "유로 → 원", from: "EUR", to: "KRW" },
   { label: "원 → 달러", from: "KRW", to: "USD" },
   { label: "원 → 엔", from: "KRW", to: "JPY" },
   { label: "원 → 유로", from: "KRW", to: "EUR" },
   { label: "원 → 바트", from: "KRW", to: "THB" },
-  { label: "달러 → 원", from: "USD", to: "KRW" },
-  { label: "유로 → 원", from: "EUR", to: "KRW" },
 ];
 
 export default function ConverterPage() {
